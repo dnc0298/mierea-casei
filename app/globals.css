@@ -15,26 +15,17 @@
   --font-lato: var(--font-lato);
   --font-roboto: var(--font-roboto);
   --font-playfair: var(--font-playfair);
-
-    
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: white;
-    --foreground: #ededed;
-  }
-}
-@import "tailwindcss";
 @theme {
-  --color-mieregri: #DCC7A6 ;
-  --color-mierealbastru: #294376 ;
+  --color-mieregri: #DCC7A6;
+  --color-mierealbastru: #294376;
   --color-mierelight: #EADECA;
-  --color-mierealbastrulight: #516790 ;
+  --color-mierealbastrulight: #516790;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-   font-family: var(--font-roboto), sans-serif;
+  font-family: var(--font-roboto), sans-serif;
 }

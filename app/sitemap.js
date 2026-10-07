@@ -1,6 +1,6 @@
 import { products } from "@/app/data/products";
 
-const baseUrl = "http://localhost:3000";
+const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export default function sitemap() {
   const productUrls = products.map((product) => ({
