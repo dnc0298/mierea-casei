@@ -77,11 +77,12 @@ export default function Footer() {
               rel="nofollow"
             >
               <Image
-                className="w-[250px] h-auto m-[5px]"
+                className="w-[250px] h-[74px] m-[5px]"
                 src="/anpc-sol.png"
                 alt="Solutionarea Alternativa a Litigiilor"
                 width={250}
                 height={74}
+                sizes="250px"
               />
             </Link>
 
@@ -91,11 +92,12 @@ export default function Footer() {
               rel="nofollow"
             >
               <Image
-                className="w-[250px] h-auto m-[5px]"
+                className="w-[250px] h-[74px] m-[5px]"
                 src="/anpc-sal.png"
                 alt="Solutionarea Online a Litigiilor"
                 width={250}
                 height={74}
+                sizes="250px"
               />
             </Link>
           </div>
