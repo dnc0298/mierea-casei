@@ -1,10 +1,38 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 
 function Hero() {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+
+    if (!video) return;
+
+    video.muted = true;
+
+    const playVideo = () => {
+      video.play().catch(() => {});
+    };
+
+    if (video.readyState >= 2) {
+      playVideo();
+    } else {
+      video.addEventListener("loadeddata", playVideo, { once: true });
+    }
+
+    return () => {
+      video.removeEventListener("loadeddata", playVideo);
+    };
+  }, []);
+
   return (
     <div className="relative min-h-[72dvh] xl:min-h-[100dvh]">
       {/* Video */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
