@@ -9,13 +9,12 @@ export const products = [
       "Mierea poliflorală este obținută din nectarul mai multor flori de câmp, fiecare recoltă având un caracter ușor diferit în funcție de perioada și zona de cules. Are un gust echilibrat, o aromă bogată și o culoare aurie, fiind potrivită atât pentru consumul zilnic, cât și pentru îndulcirea naturală a băuturilor și preparatelor.",
     price: 52.99,
     weight: "500g",
-    image: "/miere-poliflora2.png",
+    image: "/miere-poliflora-eticheta.png",
 
     thumbnails: [
-      "/miere-poliflora2.png",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
+      "/miere-poliflora-eticheta.png",
+      "/miere-poliflora-carousel-1.jpeg",
+      "/miere-poliflora-carousel-2.jpeg.jpeg",
     ],
 
     badge: "Best Seller",
@@ -31,13 +30,12 @@ export const products = [
       "Mierea de salcâm este apreciată pentru gustul său delicat, aroma discretă și culoarea deschisă. Are o consistență fluidă și poate rămâne lichidă pentru o perioadă îndelungată în condiții normale de păstrare. Este o alegere potrivită pentru cei care preferă o miere fină, cu dulceață plăcută și aromă subtilă.",
     price: 56.99,
     weight: "500g",
-    image: "/miere-salcam.png",
+    image: "/miere-salcam-eticheta.png",
 
     thumbnails: [
-      "/miere-salcam.png",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
+      "/miere-salcam-eticheta.png",
+      "/albina-salcam-miere-poliflora-carousel-2.jpeg",
+      "/salcam-carousel-1.jpeg",
     ],
 
     badge: null,
@@ -53,13 +51,13 @@ export const products = [
       "Mierea de tei se remarcă prin aroma sa florală intensă și gustul distinctiv, specific florilor de tei. Are o personalitate aromatică pronunțată și este potrivită pentru cei care preferă sortimentele de miere cu un caracter mai intens. Poate fi savurată simplă sau adăugată în ceaiuri și alte băuturi.",
     price: 57.99,
     weight: "500g",
-    image: "/miere-tei.png",
+    image: "/miere-tei-eticheta.png",
 
     thumbnails: [
-      "/miere-tei.png",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
+      "/miere-tei-eticheta.png",
+      "/tei-carousel-3.jpeg",
+      "/tei-carousel.jpeg",
+      "/tei-carousel-2.jpeg",
     ],
 
     badge: "Nou",
@@ -75,13 +73,11 @@ export const products = [
       "Mierea de floarea-soarelui are o culoare aurie intensă și un gust dulce, plăcut și bine conturat. Este cunoscută pentru tendința sa naturală de a cristaliza mai repede decât alte sortimente, fără ca acest proces să îi afecteze caracterul. Cristalizarea este un proces natural al mierii și reprezintă o caracteristică firească a acestui sortiment.",
     price: 49.99,
     weight: "500g",
-    image: "/miere-floarea-soarelui.png",
+    image: "/miere-soarelui-eticheta.png",
 
     thumbnails: [
-      "/miere-floarea-soarelui.png",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
+      "/miere-soarelui-eticheta.png",
+      "/miere-floarea-carousel-1.jpeg.jpeg",
     ],
 
     badge: null,
@@ -99,12 +95,7 @@ export const products = [
     weight: "200g",
     image: "/polen-crud.png",
 
-    thumbnails: [
-      "/polen-crud.png",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-    ],
+    thumbnails: ["/polen-crud.png"],
 
     badge: "Best Seller",
   },
@@ -121,12 +112,7 @@ export const products = [
     weight: "200g",
     image: "/polen-uscat.png",
 
-    thumbnails: [
-      "/polen-uscat.png",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-    ],
+    thumbnails: ["/polen-uscat.png"],
 
     badge: null,
   },
@@ -143,12 +129,7 @@ export const products = [
     weight: "250g",
     image: "/pasta-de-polen.png",
 
-    thumbnails: [
-      "/pasta-de-polen.png",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-    ],
+    thumbnails: ["/pasta-de-polen.png"],
 
     badge: "Nou",
   },
@@ -165,12 +146,7 @@ export const products = [
     weight: "200g",
     image: "/polen-granule.png",
 
-    thumbnails: [
-      "/polen-granule.png",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-    ],
+    thumbnails: ["/polen-granule.png"],
 
     badge: null,
   },
@@ -187,12 +163,7 @@ export const products = [
     weight: "50g",
     image: "/laptisor-matca.png",
 
-    thumbnails: [
-      "/laptisor-matca.png",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-    ],
+    thumbnails: ["/laptisor-matca.png"],
 
     badge: null,
   },
@@ -209,12 +180,7 @@ export const products = [
     weight: "30g",
     image: "/laptisor-liofilizat.png",
 
-    thumbnails: [
-      "/laptisor-liofilizat.png",
-      "/presentation-image-4.jpeg",
-      "/presentation-image-1.jpeg",
-      "/presentation-image-2.jpeg",
-    ],
+    thumbnails: ["/laptisor-liofilizat.png"],
 
     badge: "Nou",
   },
@@ -231,12 +197,7 @@ export const products = [
     weight: "60 capsule",
     image: "/laptisor-capsule.png",
 
-    thumbnails: [
-      "/laptisor-capsule.png",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-      "/presentation-image-2.jpeg",
-    ],
+    thumbnails: ["/laptisor-capsule.png"],
 
     badge: null,
   },

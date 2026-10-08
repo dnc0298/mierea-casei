@@ -4,7 +4,7 @@ function ProductsHero() {
   return (
     <div className="relative min-h-[38dvh] lg:min-h-[15dvh] overflow-hidden">
       <Image
-        src="/products-hero-black4.png"
+        src="/produs-hero5.png"
         alt="Produse Mierea Casei"
         fill
         priority
