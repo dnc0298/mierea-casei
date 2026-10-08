@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 
 function Hero() {
@@ -29,15 +30,26 @@ function Hero() {
   }, []);
 
   return (
-    <div className="relative min-h-[72dvh] xl:min-h-[100dvh]">
-      {/* Video */}
+    <div className="relative min-h-[72dvh] overflow-hidden xl:min-h-[100dvh]">
+      {/* Imagine statică optimizată - apare imediat */}
+      <Image
+        src="/hero-poster.jpg"
+        alt=""
+        fill
+        priority
+        quality={60}
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+
+      {/* Video - apare peste imagine când are frame disponibil */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        poster="/hero-poster.jpg"
         src="/Herovideo4.mp4"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
