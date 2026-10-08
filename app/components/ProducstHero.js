@@ -8,6 +8,7 @@ function ProductsHero() {
         alt="Produse Mierea Casei"
         fill
         priority
+        sizes="100vw"
         className="object-cover object-center"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-gray-950 via-gray-900/60 to-gray-950/20" />
