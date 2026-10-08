@@ -7,6 +7,8 @@ import { ChevronRight } from "./ProductIcons";
 
 export default function ProductGallery({ title, image, thumbnails, badge }) {
   const [activeThumb, setActiveThumb] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   const galleryImages =
     thumbnails && thumbnails.length > 0 ? thumbnails : [image];
@@ -25,10 +27,46 @@ export default function ProductGallery({ title, image, thumbnails, badge }) {
     );
   };
 
+  // ======================================================
+  // SWIPE
+  // ======================================================
+
+  const handleTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStart === null || touchEnd === null) return;
+
+    const distance = touchStart - touchEnd;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(distance) < minSwipeDistance) return;
+
+    if (distance > 0) {
+      goToNextImage();
+    } else {
+      goToPreviousImage();
+    }
+
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   return (
     <div className="flex flex-col gap-4">
       {/* MAIN IMAGE */}
-      <div className="group relative aspect-square w-full overflow-hidden rounded-2xl bg-[#F8F5EE] shadow-sm sm:rounded-3xl">
+      <div
+        className="group relative aspect-square w-full overflow-hidden rounded-2xl bg-[#F8F5EE] shadow-sm sm:rounded-3xl"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         {badge && (
           <div className="absolute left-4 top-4 z-20 rounded-full border border-stone-200 bg-white px-3 py-1.5 text-[9px] font-bold uppercase tracking-wider text-[#1B2A4E] shadow-sm sm:left-5 sm:top-5 sm:text-[10px]">
             {badge}
