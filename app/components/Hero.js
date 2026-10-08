@@ -32,13 +32,12 @@ function Hero() {
     <div className="relative min-h-[72dvh] xl:min-h-[100dvh]">
       {/* Video */}
       <video
-        ref={videoRef}
         autoPlay
         muted
         loop
         playsInline
         preload="auto"
-        fetchPriority="high"
+        poster="/hero-poster.jpg"
         src="/Herovideo4.mp4"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
