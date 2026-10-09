@@ -49,7 +49,7 @@ function Hero() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="none"
         src="/Herovideo4.mp4"
         className="absolute inset-0 h-full w-full object-cover object-center"
       />
