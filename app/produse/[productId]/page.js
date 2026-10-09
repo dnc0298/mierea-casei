@@ -2,9 +2,11 @@ import { notFound } from "next/navigation";
 import { products } from "@/app/data/products";
 import ProductDetail from "@/app/components/ProductDetail";
 
+const siteUrl = "https://www.miereacasei.ro";
+
 export function generateStaticParams() {
   return products.map((product) => ({
-    productId: product.id,
+    productId: String(product.id),
   }));
 }
 
@@ -17,22 +19,36 @@ export async function generateMetadata({ params }) {
     return {
       title: "Produs negăsit | Mierea Casei",
       description: "Produsul căutat nu a fost găsit.",
+      robots: {
+        index: false,
+        follow: false,
+      },
     };
   }
 
+  const productUrl = `${siteUrl}/produse/${product.id}`;
+  const productTitle = `${product.title} | Mierea Casei`;
+
   return {
-    title: `${product.title} | Mierea Casei`,
+    title: productTitle,
     description: product.description,
 
+    alternates: {
+      canonical: productUrl,
+    },
+
     openGraph: {
-      title: `${product.title} | Mierea Casei`,
+      title: productTitle,
       description: product.description,
+      url: productUrl,
       type: "website",
       locale: "ro_RO",
       siteName: "Mierea Casei",
       images: [
         {
-          url: product.image,
+          url: product.image.startsWith("http")
+            ? product.image
+            : `${siteUrl}${product.image.startsWith("/") ? "" : "/"}${product.image}`,
           alt: product.title,
         },
       ],
@@ -40,7 +56,7 @@ export async function generateMetadata({ params }) {
 
     twitter: {
       card: "summary_large_image",
-      title: `${product.title} | Mierea Casei`,
+      title: productTitle,
       description: product.description,
       images: [product.image],
     },
@@ -56,17 +72,18 @@ export default async function Page({ params }) {
     notFound();
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+  const productUrl = `${siteUrl}/produse/${product.id}`;
+
+  const productImage = product.image.startsWith("http")
+    ? product.image
+    : `${siteUrl}${product.image.startsWith("/") ? "" : "/"}${product.image}`;
 
   const productSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
-
     name: product.title,
-
     description: product.description,
-
-    image: [`${siteUrl}${product.image}`],
+    image: [productImage],
 
     brand: {
       "@type": "Brand",
@@ -75,7 +92,7 @@ export default async function Page({ params }) {
 
     offers: {
       "@type": "Offer",
-      url: `${siteUrl}/produse/${product.id}`,
+      url: productUrl,
       priceCurrency: "RON",
       price: product.price,
       availability: "https://schema.org/InStock",

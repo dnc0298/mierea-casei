@@ -9,9 +9,36 @@ import ValueCard from "../components/ValueCard";
 import StoryBadge from "../components/StoryBadge";
 
 export const metadata = {
-  title: "Despre noi",
+  title: "Povestea noastră",
   description:
-    "Descoperă povestea Mierea Casei, pasiunea pentru albine și produsele apicole naturale.",
+    "Descoperă povestea Mierea Casei, valorile noastre și pasiunea pentru miere naturală și produse apicole.",
+
+  alternates: {
+    canonical: "https://www.miereacasei.ro/despre-noi",
+  },
+
+  openGraph: {
+    title: "Povestea noastră | Mierea Casei",
+    description:
+      "Află mai multe despre Mierea Casei, grija pentru albine și aprecierea pentru mierea naturală și produsele apicole.",
+    url: "https://www.miereacasei.ro/despre-noi",
+    siteName: "Mierea Casei",
+    locale: "ro_RO",
+    type: "website",
+    images: [
+      {
+        url: "/produs-hero5.png",
+        alt: "Produse apicole Mierea Casei",
+      },
+    ],
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Povestea noastră | Mierea Casei",
+    description: "Descoperă povestea și valorile din spatele Mierea Casei.",
+    images: ["/produs-hero5.png"],
+  },
 };
 
 export default function DespreNoiPage() {

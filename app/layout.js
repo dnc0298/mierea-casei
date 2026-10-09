@@ -22,26 +22,30 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://miereacasei.ro"),
+  metadataBase: new URL("https://www.miereacasei.ro"),
 
   title: {
-    default: "Mierea Casei | Miere naturală",
+    default: "Miere naturală și produse apicole | Mierea Casei",
     template: "%s | Mierea Casei",
   },
 
   description:
-    "Descoperă miere naturală și produse apicole de la Mierea Casei.",
+    "Descoperă sortimente de miere naturală, polen și lăptișor de matcă de la Mierea Casei.",
 
-  keywords: [
-    "miere naturală",
-    "miere de albine",
-    "miere de salcâm",
-    "miere poliflorală",
-    "miere de tei",
-    "produse apicole",
-    "polen",
-    "lăptișor de matcă",
-  ],
+  openGraph: {
+    type: "website",
+    locale: "ro_RO",
+    siteName: "Mierea Casei",
+    title: "Miere naturală și produse apicole | Mierea Casei",
+    description:
+      "Descoperă sortimente de miere naturală și produse apicole de la Mierea Casei.",
+    images: [
+      {
+        url: "/produs-hero5.png",
+        alt: "Produse apicole Mierea Casei",
+      },
+    ],
+  },
 
   robots: {
     index: true,
