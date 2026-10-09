@@ -123,7 +123,13 @@ export async function PATCH(request, { params }) {
     // 6. Dacă statusul este deja același
     // ---------------------------------------------------------
 
-    if (currentOrder.status === status) {
+    if (
+      currentOrder.status === status &&
+      !(
+        (status === "processing" && !currentOrder.processing_email_sent) ||
+        (status === "shipped" && !currentOrder.shipped_email_sent)
+      )
+    ) {
       return NextResponse.json({
         success: true,
         order: {
@@ -196,26 +202,32 @@ export async function PATCH(request, { params }) {
 
     if (shouldSendProcessingEmail) {
       try {
-        await sendOrderProcessingEmail({
-          customerName: currentOrder.customer_name,
-          customerEmail: currentOrder.email,
-          orderId: currentOrder.id,
-          total: currentOrder.total,
-        });
+        const { data: emailData, error: resendError } =
+          await sendOrderProcessingEmail({
+            customerName: currentOrder.customer_name,
+            customerEmail: currentOrder.email,
+            orderId: currentOrder.id,
+            total: currentOrder.total,
+          });
 
-        // Marcăm emailul ca trimis DOAR dacă Resend a reușit
-        const { error: flagError } = await supabase
-          .from("orders")
-          .update({
-            processing_email_sent: true,
-          })
-          .eq("id", orderId);
+        if (resendError) {
+          console.error("RESEND PROCESSING EMAIL ERROR:", resendError);
+        } else if (emailData?.id) {
+          const { error: flagError } = await supabase
+            .from("orders")
+            .update({ processing_email_sent: true })
+            .eq("id", orderId);
 
-        if (flagError) {
-          console.error("PROCESSING EMAIL FLAG ERROR:", flagError);
+          if (flagError) {
+            console.error("PROCESSING EMAIL FLAG ERROR:", flagError);
+          } else {
+            emailSent = true;
+          }
+        } else {
+          console.error(
+            "PROCESSING EMAIL: Resend nu a returnat un ID de email.",
+          );
         }
-
-        emailSent = true;
       } catch (emailError) {
         console.error("PROCESSING EMAIL ERROR:", emailError);
       }
@@ -227,32 +239,35 @@ export async function PATCH(request, { params }) {
 
     if (shouldSendShippedEmail) {
       try {
-        await sendOrderShippedEmail({
-          customerName: currentOrder.customer_name,
-          customerEmail: currentOrder.email,
-          orderId: currentOrder.id,
-          total: currentOrder.total,
-          awb: cleanAwb,
-        });
+        const { data: emailData, error: resendError } =
+          await sendOrderShippedEmail({
+            customerName: currentOrder.customer_name,
+            customerEmail: currentOrder.email,
+            orderId: currentOrder.id,
+            total: currentOrder.total,
+            awb: cleanAwb,
+          });
 
-        // Marcăm emailul ca trimis DOAR dacă Resend a reușit
-        const { error: flagError } = await supabase
-          .from("orders")
-          .update({
-            shipped_email_sent: true,
-          })
-          .eq("id", orderId);
+        if (resendError) {
+          console.error("RESEND SHIPPED EMAIL ERROR:", resendError);
+        } else if (emailData?.id) {
+          const { error: flagError } = await supabase
+            .from("orders")
+            .update({ shipped_email_sent: true })
+            .eq("id", orderId);
 
-        if (flagError) {
-          console.error("SHIPPED EMAIL FLAG ERROR:", flagError);
+          if (flagError) {
+            console.error("SHIPPED EMAIL FLAG ERROR:", flagError);
+          } else {
+            emailSent = true;
+          }
+        } else {
+          console.error("SHIPPED EMAIL: Resend nu a returnat un ID de email.");
         }
-
-        emailSent = true;
       } catch (emailError) {
         console.error("SHIPPED EMAIL ERROR:", emailError);
       }
     }
-
     // ---------------------------------------------------------
     // 10. Răspuns
     // ---------------------------------------------------------
