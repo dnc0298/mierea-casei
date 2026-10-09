@@ -6,7 +6,7 @@ const FROM_EMAIL = "Mierea Casei <comenzi@miereacasei.ro>";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
-const LOGO_URL = `${SITE_URL}/logo.png`;
+const LOGO_URL = `${SITE_URL}/logo-email.png`;
 
 function escapeHtml(value) {
   return String(value ?? "")
