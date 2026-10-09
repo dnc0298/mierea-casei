@@ -22,8 +22,10 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://miereacasei.ro"),
+
   title: {
-    default: "Mierea Casei | Miere naturală ",
+    default: "Mierea Casei | Miere naturală",
     template: "%s | Mierea Casei",
   },
 
@@ -52,7 +54,6 @@ export default function RootLayout({ children }) {
     <html
       lang="ro"
       className={`
-        
         ${roboto.variable}
         ${playfair.variable}
         h-full
@@ -85,6 +86,7 @@ export default function RootLayout({ children }) {
               </div>
             </div>
           </header>
+
           <main>{children}</main>
 
           <Footer />
