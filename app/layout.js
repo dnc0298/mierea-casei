@@ -11,13 +11,15 @@ import Providers from "./components/Providers";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  weight: ["300", "400", "700"],
+  weight: ["400", "700"],
+  display: "swap",
   variable: "--font-roboto",
 });
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600"],
+  display: "swap",
   variable: "--font-playfair",
 });
 

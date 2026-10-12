@@ -1,34 +1,8 @@
-"use client";
-
-import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import HeroVideo from "./HeroVideo";
 
 function Hero() {
-  const videoRef = useRef(null);
-
-  useEffect(() => {
-    const video = videoRef.current;
-
-    if (!video) return;
-
-    video.muted = true;
-
-    const playVideo = () => {
-      video.play().catch(() => {});
-    };
-
-    if (video.readyState >= 2) {
-      playVideo();
-    } else {
-      video.addEventListener("loadeddata", playVideo, { once: true });
-    }
-
-    return () => {
-      video.removeEventListener("loadeddata", playVideo);
-    };
-  }, []);
-
   return (
     <div className="relative min-h-[72dvh] overflow-hidden xl:min-h-[100dvh]">
       {/* Imagine statică optimizată - apare imediat */}
@@ -37,22 +11,14 @@ function Hero() {
         alt=""
         fill
         preload
+        fetchPriority="high"
         quality={60}
         sizes="100vw"
         className="object-cover object-center"
       />
 
       {/* Video - apare peste imagine când are frame disponibil */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="none"
-        src="/Herovideo4.mp4"
-        className="absolute inset-0 h-full w-full object-cover object-center"
-      />
+      <HeroVideo />
 
       {/* Gradient foarte gradual pentru lizibilitatea textului */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/20 via-45% to-transparent" />

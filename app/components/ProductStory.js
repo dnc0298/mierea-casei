@@ -22,7 +22,8 @@ function ProductStory({
           <Image
             src={image}
             fill
-            sizes="(max-width: 768px) min(420px, calc(100vw - 48px)), 50vw"
+            sizes="(max-width: 768px) 90vw, (max-width: 1024px) 400px, 550px"
+            quality={65}
             alt={imageAlt}
             className="object-cover"
           />

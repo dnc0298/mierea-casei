@@ -1,6 +1,15 @@
 /** @type {import('next').NextConfig} */
 
 const nextConfig = {
+  experimental: {
+    inlineCss: true,
+  },
+  images: {
+    formats: ["image/avif", "image/webp"],
+    deviceSizes: [360, 420, 640, 750, 828, 1080, 1200],
+    imageSizes: [64, 128, 256, 384],
+    qualities: [60, 65, 75],
+  },
   async headers() {
     return [
       {
