@@ -36,7 +36,7 @@ function Hero() {
         src="/hero-poster.jpg"
         alt=""
         fill
-        priority
+        fetchPriority="high"
         quality={60}
         sizes="100vw"
         className="object-cover object-center"
