@@ -81,7 +81,8 @@ export default function Page() {
               prompt: "select_account",
             });
           }}
-          disabled={loading}
+          //disabled={loading}
+          disabled={true}
           className="mt-8 w-full flex items-center justify-center gap-3 rounded-lg border-2 border-gray-300 bg-white px-4 py-3 font-semibold text-gray-700 transition hover:bg-gray-50 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {/* Logo Google oficial (SVG) */}

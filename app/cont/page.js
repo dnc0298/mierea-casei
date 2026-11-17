@@ -75,6 +75,8 @@ function GuestAccount() {
           </p>
 
           <button
+            // il activam mai tarziu
+            disabled={true}
             type="button"
             onClick={() => signIn("google", { callbackUrl: "/cont" })}
             className="mt-7 flex w-full max-w-md items-center justify-center gap-3 rounded-xl border border-gray-200 bg-white px-5 py-3.5 font-roboto text-sm font-bold text-gray-700 shadow-sm transition hover:bg-gray-50 active:scale-[0.99]"

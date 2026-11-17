@@ -68,6 +68,7 @@ export default function CheckoutPage() {
       [name]: value,
     }));
   }
+
   useEffect(() => {
     async function loadUserData() {
       if (sessionStatus !== "authenticated" || !session?.user?.id) {
@@ -428,6 +429,7 @@ export default function CheckoutPage() {
                     value="ramburs"
                     checked={customer.paymentMethod === "ramburs"}
                     onChange={handleChange}
+                    disabled // MODIFICAT: metoda de plată nu mai poate fi schimbată
                     className="h-4 w-4 accent-amber-500"
                   />
 
@@ -611,6 +613,7 @@ function InputField({
           onChange={onChange}
           placeholder={placeholder}
           required={required}
+          readOnly // MODIFICAT: câmpul rămâne vizibil, dar nu mai poate fi editat
           className={`h-12 w-full rounded-2xl border border-gray-200 bg-[#FCFBF8] text-sm text-gray-800 outline-none transition focus:border-amber-500 focus:ring-2 focus:ring-amber-500/10 ${
             Icon ? "pl-11 pr-4" : "px-4"
           }`}

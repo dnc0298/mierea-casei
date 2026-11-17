@@ -8,6 +8,7 @@ import MobileMenu from "./components/MobileMenu";
 import SmoothScroll from "./components/SmoothScroll";
 import Footer from "./components/Footer";
 import Providers from "./components/Providers";
+import DemoBanner from "./components/DemoBanner";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -96,6 +97,7 @@ export default function RootLayout({ children }) {
           <main>{children}</main>
 
           <Footer />
+          <DemoBanner />
         </Providers>
       </body>
     </html>
